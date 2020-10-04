@@ -44,15 +44,12 @@ export class LinesOfCodeCalculator {
                 isMultiCommentLineStart = true;
             }
 
-            // TODO: refactor to one statement
-            if (this.isWhitespaceLine(line)) {
+            const hasNoExecutableCode = this.isWhitespaceLine(line) || this.isFullCommentLine(line);
+            if (hasNoExecutableCode) {
                 whitespaceOrCommentLines++;
                 continue;
             }
-            if (this.isFullCommentLine(line)) {
-                whitespaceOrCommentLines++;
-                continue;
-            }
+
             if (isMultiCommentLineStart && this.isNestedMultiLineComment(line)) {
                 whitespaceOrCommentLines++;
             }

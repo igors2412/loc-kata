@@ -1,7 +1,7 @@
 import { LinesOfCodeCalculator } from './loc/loc';
 
 const loc = new LinesOfCodeCalculator();
-const testFilePath = './test-data/t7.cs';
+const testFilePath = './test-data/t1.cs';
 
 console.log(`Parsing file "${testFilePath}"...`);
 
